@@ -107,7 +107,8 @@ the wrong direction change INVERT_X_DIR or INVERT_Y_DIR.
       /** \brief Pitch in mm of drive belt. GT2 = 2mm */
       #define BELT_PITCH 2
       /** \brief Number of teeth on X, Y and Z tower pulleys */
-      #define PULLEY_TEETH 20
+      //Changed by Theverant
+      #define PULLEY_TEETH 15
       #define PULLEY_CIRCUMFERENCE (BELT_PITCH * PULLEY_TEETH)
     #elif DELTA_DRIVE_TYPE == 1
       /** \brief Filament pulley diameter in milimeters */
@@ -160,7 +161,7 @@ the wrong direction change INVERT_X_DIR or INVERT_Y_DIR.
 #define EXT0_X_OFFSET 0
 #define EXT0_Y_OFFSET 0
 // for skeinforge 40 and later, steps to pull the plasic 1 mm inside the extruder, not out.  Overridden if EEPROM activated.
-#define EXT0_STEPS_PER_MM 92.000 //steves extruder    set to 92 for ezstruder
+#define EXT0_STEPS_PER_MM 96.53 // Changed by Theverant Airtripper w/ QU-BD Motor
 // What type of sensor is used?
 // 1 is 100k thermistor (Epcos B57560G0107F000 - RepRap-Fab.org and many other)
 // 2 is 200k thermistor
@@ -179,7 +180,8 @@ the wrong direction change INVERT_X_DIR or INVERT_Y_DIR.
 // 99 Generic thermistor table 3
 // 100 is AD595
 // 101 is MAX6675
-#define EXT0_TEMPSENSOR_TYPE 8
+// Changed by Theverant (E3D Thermistor)
+#define EXT0_TEMPSENSOR_TYPE 1
 // Analog input pin for reading temperatures or pin enabling SS for MAX6675
 #define EXT0_TEMPSENSOR_PIN TEMP_0_PIN
 // WHich pin enables the heater
@@ -568,7 +570,8 @@ A good start is 30 lower then the optimal value. You need to leave room for cool
 // When temperature exceeds max temp, your heater will be switched off.
 // This feature exists to protect your hotend from overheating accidentally, but *NOT* from thermistor short/failure!
 // You should use MINTEMP for thermistor short/failure protection.
-#define MAXTEMP 250
+// Chaged for E3D Theverant
+#define MAXTEMP 300
 
 /** Extreme values to detect defect thermistors. */
 #define MIN_DEFECT_TEMPERATURE -10
@@ -678,9 +681,9 @@ on this endstop.
 // For delta robot Z_MAX_LENGTH is maximum travel of the towers and should be set to the distance between the hotend
 // and the platform when the printer is at its home position.
 // If EEPROM is enabled these values will be overidden with the values in the EEPROM
-#define X_MAX_LENGTH 360.8
-#define Y_MAX_LENGTH 360.8
-#define Z_MAX_LENGTH 360.8
+#define X_MAX_LENGTH 372.10
+#define Y_MAX_LENGTH 372.10
+#define Z_MAX_LENGTH 372.10
 
 // Coordinates for the minimum axis. Can also be negative if you want to have the bed start at 0 and the printer can go to the left side
 // of the bed. Maximum coordinate is given by adding the above X_MAX_LENGTH values.
@@ -696,7 +699,8 @@ on this endstop.
 #define MICROSTEP_MODES {16,16,16,16,16} // [1,2,4,8,16]
 
 // Motor Current setting (Only functional when motor driver current ref pins are connected to a digital trimpot on supported boards)
-#define MOTOR_CURRENT {175,175,175,225,0} // Values 0-255 (RAMBO 135 = ~0.75A, 185 = ~1A)
+// Changed by Theverant - QU-BD motor runs too hot
+#define MOTOR_CURRENT {175,175,175,200,0} // Values 0-255 (RAMBO 135 = ~0.75A, 185 = ~1A)
 //#define MOTOR_CURRENT {35713,35713,35713,35713,35713} // Values 0-65535 (3D Master 35713 = ~1A)
 
 // Delta settings
@@ -720,7 +724,8 @@ on this endstop.
 
 /** \brief Printer radius in mm, measured from the center of the print area to the vertical smooth rod.
 */
-#define PRINTER_RADIUS 198.25
+//Chaged by Theverant
+#define PRINTER_RADIUS 198.85
 
 /**  \brief Horizontal distance bridged by the diagonal push rod when the end effector is in the center. It is pretty close to 50% of the push rod length (250 mm).
 */
@@ -1076,7 +1081,7 @@ Select the language to use.
 #define UI_LANGUAGE 0
 
 // This is line 2 of the status display at startup. Change to your like.
-#define UI_VERSION_STRING2 "RostockMAX"
+#define UI_VERSION_STRING2 "thevBOT"
 
 /** How many ms should a single page be shown, until it is switched to the next one.*/
 #define UI_PAGES_DURATION 4000
@@ -1105,6 +1110,7 @@ Select an encoder speed from 0 = fastest to 2 = slowest that results in one menu
 /** \brief Lowest repeat time. */
 #define UI_KEY_MIN_REPEAT 50
 
+//Changed by Theverant
 #define FEATURE_BEEPER true
 /**
 Beeper sound definitions for short beeps during key actions
@@ -1119,16 +1125,17 @@ Values must be in range 1..255
 // ##                         Values for menu settings                          ##
 // ###############################################################################
 
+//Changed by Theverant
 // Values used for preheat
 #define UI_SET_PRESET_HEATED_BED_TEMP_PLA 60
-#define UI_SET_PRESET_EXTRUDER_TEMP_PLA   150
+#define UI_SET_PRESET_EXTRUDER_TEMP_PLA   130
 #define UI_SET_PRESET_HEATED_BED_TEMP_ABS 90
-#define UI_SET_PRESET_EXTRUDER_TEMP_ABS   175
+#define UI_SET_PRESET_EXTRUDER_TEMP_ABS   160
 // Extreme values 
 #define UI_SET_MIN_HEATED_BED_TEMP  50
-#define UI_SET_MAX_HEATED_BED_TEMP 100
+#define UI_SET_MAX_HEATED_BED_TEMP 115
 #define UI_SET_MIN_EXTRUDER_TEMP   60
-#define UI_SET_MAX_EXTRUDER_TEMP   230
+#define UI_SET_MAX_EXTRUDER_TEMP   300
 #define UI_SET_EXTRUDER_FEEDRATE 2 // mm/sec
 #define UI_SET_EXTRUDER_RETRACT_DISTANCE 3 // mm
 
