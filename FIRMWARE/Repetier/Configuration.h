@@ -108,7 +108,7 @@ the wrong direction change INVERT_X_DIR or INVERT_Y_DIR.
       #define BELT_PITCH 2
       /** \brief Number of teeth on X, Y and Z tower pulleys */
       //Changed by Theverant
-      #define PULLEY_TEETH 15
+      #define PULLEY_TEETH 20
       #define PULLEY_CIRCUMFERENCE (BELT_PITCH * PULLEY_TEETH)
     #elif DELTA_DRIVE_TYPE == 1
       /** \brief Filament pulley diameter in milimeters */
@@ -230,15 +230,16 @@ The I state should converge to the exact heater output needed for the target tem
 To prevent a long deviation from the target zone, this value limits the lower value.
 A good start is 30 lower then the optimal value. You need to leave room for cooling.
  Overridden if EEPROM activated.
-*/
+ */
 #define EXT0_PID_INTEGRAL_DRIVE_MIN 60
+// Changed by Theverant E3D Values
 /** P-gain.  Overridden if EEPROM activated. */
-#define EXT0_PID_P   11.63
+#define EXT0_PID_P   9.86
 /** I-gain. Overridden if EEPROM activated.
 */
-#define EXT0_PID_I   0.43
+#define EXT0_PID_I   0.70
 /** Dgain.  Overridden if EEPROM activated.*/
-#define EXT0_PID_D 78.65
+#define EXT0_PID_D 34.95
 // maximum time the heater is can be switched on. Max = 255.  Overridden if EEPROM activated.
 #define EXT0_PID_MAX 255
 /** \brief Faktor for the advance algorithm. 0 disables the algorithm.  Overridden if EEPROM activated.
