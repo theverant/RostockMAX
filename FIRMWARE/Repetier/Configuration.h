@@ -701,7 +701,7 @@ on this endstop.
 
 // Motor Current setting (Only functional when motor driver current ref pins are connected to a digital trimpot on supported boards)
 // Changed by Theverant - QU-BD motor runs too hot
-#define MOTOR_CURRENT {175,175,175,200,0} // Values 0-255 (RAMBO 135 = ~0.75A, 185 = ~1A)
+#define MOTOR_CURRENT {175,175,175,150,0} // Values 0-255 (RAMBO 135 = ~0.75A, 185 = ~1A)
 //#define MOTOR_CURRENT {35713,35713,35713,35713,35713} // Values 0-65535 (3D Master 35713 = ~1A)
 
 // Delta settings
@@ -723,10 +723,11 @@ on this endstop.
 */
 #define CARRIAGE_HORIZONTAL_OFFSET 35
 
-/** \brief Printer radius in mm, measured from the center of the print area to the vertical smooth rod.
-*/
+//##############  Delta Convex/Concave adjustments  ######################
+//Use this value to adjust your sweeping motion of the platform.  If your nozzle is raising in the center, raise this value by .5 at a time, if it's lowering in the center
+// lower it by .5 at a time until it sweeps across the table nice and flat
 //Chaged by Theverant
-#define PRINTER_RADIUS 198.85
+#define PRINTER_RADIUS 198.70
 
 /**  \brief Horizontal distance bridged by the diagonal push rod when the end effector is in the center. It is pretty close to 50% of the push rod length (250 mm).
 */
@@ -1112,7 +1113,7 @@ Select an encoder speed from 0 = fastest to 2 = slowest that results in one menu
 #define UI_KEY_MIN_REPEAT 50
 
 //Changed by Theverant
-#define FEATURE_BEEPER true
+#define FEATURE_BEEPER false
 /**
 Beeper sound definitions for short beeps during key actions
 and longer beeps for important actions.
