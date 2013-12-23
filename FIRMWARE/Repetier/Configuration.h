@@ -682,9 +682,10 @@ on this endstop.
 // For delta robot Z_MAX_LENGTH is maximum travel of the towers and should be set to the distance between the hotend
 // and the platform when the printer is at its home position.
 // If EEPROM is enabled these values will be overidden with the values in the EEPROM
-#define X_MAX_LENGTH 372.10
-#define Y_MAX_LENGTH 372.10
-#define Z_MAX_LENGTH 372.10
+// Changed by Theverant - E3D underslung
+#define X_MAX_LENGTH 333
+#define Y_MAX_LENGTH 333
+#define Z_MAX_LENGTH 333
 
 // Coordinates for the minimum axis. Can also be negative if you want to have the bed start at 0 and the printer can go to the left side
 // of the bed. Maximum coordinate is given by adding the above X_MAX_LENGTH values.
@@ -700,8 +701,8 @@ on this endstop.
 #define MICROSTEP_MODES {16,16,16,16,16} // [1,2,4,8,16]
 
 // Motor Current setting (Only functional when motor driver current ref pins are connected to a digital trimpot on supported boards)
-// Changed by Theverant - QU-BD motor runs too hot
-#define MOTOR_CURRENT {175,175,175,150,0} // Values 0-255 (RAMBO 135 = ~0.75A, 185 = ~1A)
+// Changed by Theverant - using SeeMeCNCs Motor (135 for Qu-BD motor)
+#define MOTOR_CURRENT {175,175,175,245,0} // Values 0-255 (RAMBO 135 = ~0.75A, 185 = ~1A)
 //#define MOTOR_CURRENT {35713,35713,35713,35713,35713} // Values 0-65535 (3D Master 35713 = ~1A)
 
 // Delta settings
@@ -727,7 +728,7 @@ on this endstop.
 //Use this value to adjust your sweeping motion of the platform.  If your nozzle is raising in the center, raise this value by .5 at a time, if it's lowering in the center
 // lower it by .5 at a time until it sweeps across the table nice and flat
 //Chaged by Theverant
-#define PRINTER_RADIUS 198.70
+#define PRINTER_RADIUS 199.25
 
 /**  \brief Horizontal distance bridged by the diagonal push rod when the end effector is in the center. It is pretty close to 50% of the push rod length (250 mm).
 */
